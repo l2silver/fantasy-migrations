@@ -1,5 +1,7 @@
+const { getPitchersInsert } = require('..')
+
 exports.up = function(knex, Promise) {
-  const results = [knex.schema.raw(`COPY p FROM '/users/leigh/Downloads/pitchers.csv' DELIMITER ',' CSV HEADER;`)]
+  const results = [knex.schema.raw(getPitchersInsert('p'))]
   return Promise.all(results)
 };
 
